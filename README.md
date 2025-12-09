@@ -1,51 +1,80 @@
-🚀 Getting Started
-Prerequisites
-Before running this project, ensure you have:
+# 🚀 Flutter Firebase Authentication App
 
-Flutter SDK installed.
+A simple and clean Flutter application that integrates **Firebase Authentication** using **Email/Password login**.  
+The app listens to real-time authentication state changes and automatically switches between **Login**, **Signup**, and **Dashboard** screens.
 
-Firebase CLI installed.
+---
 
-An active Firebase Project created on the Firebase Console.
+## 📋 Prerequisites
 
-Installation
-Clone the repository:
+Before running this project, make sure you have:
 
-Bash
+- **Flutter SDK** installed  
+- **Firebase CLI** installed  
+- **An active Firebase project** created in the **Firebase Console**
 
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+---
+
+## 🔧 Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
-Install Dependencies:
 
-Bash
-
+2️⃣ Install Dependencies
 flutter pub get
-Configure Firebase: Run the following command to link this app to your Firebase project (this generates firebase_options.dart):
 
-Bash
+3️⃣ Configure Firebase
 
-flutterfire configure
-Select "Authentication" in the Firebase Console and enable "Email/Password" sign-in provider.
+Run the command below to link this Flutter project with your Firebase project.
+This generates the firebase_options.dart file.
 
-Run the App:
+Then:
 
-Bash
+Go to Firebase Console → Authentication
+Open Sign-in providers
+Enable Email/Password
 
+4️⃣ Run the App
 flutter run
+
 🧠 How It Works
-main.dart: Initializes Firebase and loads the AuthWrapper.
+main.dart
 
-AuthWrapper: Listens to the authStateChanges stream from Firebase.
+Initializes Firebase.
 
-If User is null → Shows LoginScreen.
+Loads the AuthWrapper widget.
 
-If User is logged in → Shows DashboardScreen.
+AuthWrapper
 
-Login/Signup: Calls methods in AuthService. upon success, Firebase updates the stream, and AuthWrapper automatically handles the navigation.
+Listens to Firebase's authentication state:
 
-📦 Dependencies
-firebase_core - Connection to Firebase.
+If User == null → Shows LoginScreen
 
-firebase_auth - Authentication logic.
+If logged in → Shows DashboardScreen
 
-provider - (Optional/Included for future scalability).
+Login / Signup
+
+Calls methods inside AuthService.
+
+On success, Firebase updates the auth state.
+
+AuthWrapper automatically updates UI accordingly.
+
+📁 Project Structure
+lib/
+ ├── main.dart
+ ├── firebase_options.dart
+ ├── services/
+ │     └── auth_service.dart
+ ├── wrappers/
+ │     └── auth_wrapper.dart
+ ├── screens/
+ │     ├── login_screen.dart
+ │     ├── signup_screen.dart
+ │     └── dashboard_screen.dart
+ └── widgets/
+       └── custom_button.dart
+
