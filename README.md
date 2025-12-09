@@ -22,46 +22,44 @@ Before running this project, make sure you have:
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+```
 
 2️⃣ Install Dependencies
+```bash
 flutter pub get
+```
 
 3️⃣ Configure Firebase
-
 Run the command below to link this Flutter project with your Firebase project.
 This generates the firebase_options.dart file.
+```bash
+flutterfire configure
+```
 
 Then:
-
 Go to Firebase Console → Authentication
 Open Sign-in providers
 Enable Email/Password
 
 4️⃣ Run the App
+```bash
 flutter run
+```
 
 🧠 How It Works
 main.dart
+✅Initializes Firebase.
+✅Loads the AuthWrapper widget.
 
-Initializes Firebase.
-
-Loads the AuthWrapper widget.
-
-AuthWrapper
-
-Listens to Firebase's authentication state:
-
-If User == null → Shows LoginScreen
-
-If logged in → Shows DashboardScreen
+AuthWrapper : Listens to Firebase's authentication state:
+✅If User == null → Shows LoginScreen
+✅If logged in → Shows DashboardScreen
 
 Login / Signup
 
-Calls methods inside AuthService.
-
-On success, Firebase updates the auth state.
-
-AuthWrapper automatically updates UI accordingly.
+✅Calls methods inside AuthService.
+✅On success, Firebase updates the auth state.
+✅AuthWrapper automatically updates UI accordingly.
 
 📁 Project Structure
 lib/
