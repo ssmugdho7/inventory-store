@@ -62,6 +62,7 @@ Login / Signup
 ✅AuthWrapper automatically updates UI accordingly.
 
 📁 Project Structure
+```bash
 lib/
  ├── main.dart
  ├── firebase_options.dart
